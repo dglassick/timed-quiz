@@ -9,16 +9,18 @@
 <div>
     <h1>Timed Quiz</h1>
 </div>
-<div class = "button-text">
+<div id = "startScreen" class = "start" >
     <button id = "startButton">Start</button>
     <p>Click the button to start the quiz. </p>
 </div>
 <div id = "quiz-time-left"></div>
-<div id = "quiz-question">
-    <div id = "quiz-answers"></div>
+<div id = "quiz-question" class ="hide">
+    <h2 id = "question-title"></h2>
+    <div id = "quiz-answers" class ="quiz-answers"></div>
 </div>
+<div id="question-score" class = "hide"></div>
 
-
-<script src="./assets/js/index.js"></script> 
+<script src="./assets/js/questions.js"></script>
+<script src="./assets/js/index.js" ></script> 
 </body>
 </html>
