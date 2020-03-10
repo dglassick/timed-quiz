@@ -1,26 +1,38 @@
 <!DOCTYPE html>
-<html lang = 'en-us'>
+<html lang='en-us'>
+
 <head>
     <meta charset='UTF-8'>
     <title>Timed Quiz</title>
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
-<body>
-<div>
-    <h1>Timed Quiz</h1>
-</div>
-<div id = "startScreen" class = "start" >
-    <button id = "startButton">Start</button>
-    <p>Click the button to start the quiz. </p>
-</div>
-<div id = "quiz-time-left"></div>
-<div id = "quiz-question" class ="hide">
-    <h2 id = "question-title"></h2>
-    <div id = "quiz-answers" class ="quiz-answers"></div>
-</div>
-<div id="question-score" class = "hide"></div>
 
-<script src="./assets/js/questions.js"></script>
-<script src="./assets/js/index.js" ></script> 
+<body>
+    <div>
+        <h1 id = 'quiz-title'>Timed Quiz</h1>
+    </div>
+    <div id="startScreen" class="start">
+        <button id="startButton">Start</button>
+        <p>Click the button to start the quiz. </p>
+    </div>
+    <div id="quiz-time-left"></div>
+
+    <div id='quiz-body'>
+        <div id ='quiz-timer'>
+            <text>Time = <time id='seconds-timer'>0</time></text>
+        </div>
+        <div id="quiz-question" class="hide">
+            <h2 id="question-title"></h2>
+            <div id="quiz-answers" class="quiz-answers">
+
+
+            </div>
+        </div>
+    </div>
+    <div id="question-score" class="hide"></div>
+
+    <script src="./assets/js/questions.js"></script>
+    <script src="./assets/js/index.js"></script>
 </body>
+
 </html>
