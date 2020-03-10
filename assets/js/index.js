@@ -11,6 +11,10 @@ var currentIndex = 0;
 var quizQuestion = document.getElementById("quiz-question");
 var quizAnswers = document.getElementById("quiz-answers");
 
+var maxTime = 31
+var timeElapsed = 0
+var interval_id
+
 // startButton triggers the startQuiz function
 startButton.onclick = startQuiz;
 
@@ -24,6 +28,7 @@ function startQuiz() {
     quizQuestion.removeAttribute("class");
 
     getQuestions();
+    interval_id = startTimer()
 
 };
 
@@ -34,7 +39,6 @@ function getQuestions() {
     questionTitle.setAttribute("question", currentIndex);
 
     quizAnswers.innerHTML = ""
-
 
 
     // currentQuestion.options for loop with createElement button to 
@@ -52,8 +56,7 @@ quizAnswers.addEventListener("click", function (e) {
         scoreCounterEl++;
         document.getElementById('scoreCounter').textContent = "Score = " + scoreCounterEl;
         // currentIndex++;
-    }
-    else {
+    } else {
         alert("Nope!");
         // currentIndex++;
         // getQuestions();
@@ -62,8 +65,30 @@ quizAnswers.addEventListener("click", function (e) {
     currentIndex++;
     getQuestions();
 
+    // stop timer 
+    clearInterval(interval_id)
+    interval_id = startTimer()
+    timeElapsed = 0
+
+
 });
 
+function startTimer() {
+    return setInterval(function () {
+        timeElapsed++
+        if (timeElapsed > maxTime) {
+
+            alert("ran out of time!")
+
+            // next question 
+            currentIndex++;
+            getQuestions()
+            timeElapsed = 0
+
+        }
+        document.getElementById('seconds-timer').innerHTML = maxTime - timeElapsed
+    }, 1000)
+}
 // function timerFunction(){
 //     timeCounter = timeCounter -1;
 //     if(timeCounter < 180){
@@ -85,9 +110,9 @@ quizAnswers.addEventListener("click", function (e) {
 //     }};
 
 // document.querySelectorAll("#quiz-answers button")
-setTimeout(add,10000);
+setTimeout(add, 10000);
 
-function add(){
+function add() {
 
 
 
