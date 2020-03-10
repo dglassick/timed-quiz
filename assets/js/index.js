@@ -5,7 +5,7 @@
 
 var timerEl = document.getElementById("seconds-timer");
 var timeCounter = 180;
-var scoreCounter = 0;
+var scoreCounterEl = 0;
 var startButton = document.getElementById("startButton");
 var currentIndex = 0;
 var quizQuestion = document.getElementById("quiz-question");
@@ -49,6 +49,8 @@ function getQuestions() {
 quizAnswers.addEventListener("click", function (e) {
     if (e.target.textContent === questionArray[currentIndex].answer) {
         alert("CORRECT");
+        scoreCounterEl++;
+        document.getElementById('scoreCounter').textContent = "Score = " + scoreCounterEl;
         // currentIndex++;
     }
     else {
